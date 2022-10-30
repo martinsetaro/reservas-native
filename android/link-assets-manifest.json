@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/IslandMoments-Regular.ttf",
+      "sha1": "c706516b951b2ed3fa905d2e24cf96aa9b577f42"
+    },
+    {
+      "path": "src/assets/fonts/Outfit-Regular.ttf",
+      "sha1": "bcb85df11636ccfe003e92f12515c29c3be865f5"
+    }
+  ]
+}

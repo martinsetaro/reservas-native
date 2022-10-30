@@ -125,11 +125,9 @@ const style = StyleSheet.create({
       textoInside:{
         textAlign:'center',
         color:'#fff',
-        fontWeight:'bold',
-        textTransform:'uppercase',
-        fontSize:50,
+        fontSize:60,
         marginTop:30,
-        fontFamily:'outFit'
+        fontFamily:'Outfit-Regular'
       },
       btnReserva:{
         ...globalStyle.btn,
@@ -140,7 +138,7 @@ const style = StyleSheet.create({
         fontSize:20,
         textTransform:'uppercase',
         color:'#fff',
-        fontWeight:'bold',
+        fontFamily:'Outfit-Regular',
         textAlign:'center'
       },
       modalTexto:{

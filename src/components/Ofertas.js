@@ -24,7 +24,11 @@ const Ofertas = ({navigation}) => {
      <SafeAreaView style={style.contenedor}>
       
 
-        <Text style={style.titulo}>No dejes pasar estas ofertas!!</Text>
+        <View style={style.contenedorImagen}>
+            <Image 
+            style={style.imagen}
+            source={require('../img/banner.png')}/>
+        </View>
 
 
          {Destinos.map( item =>{
@@ -44,13 +48,15 @@ const style= StyleSheet.create({
         paddingTop:10,
         paddingBottom:40
     },
-    titulo:{
-        textAlign:'center',
-        fontSize:30,
-        color:'#1e1e1e',
-        textTransform:'uppercase'
-        
+    contenedorImagen:{
+      width:'100%',
+      height:200
+    },
+    imagen:{
+        width:350,
+        height:200
     }
+
 })
 
 export default Ofertas

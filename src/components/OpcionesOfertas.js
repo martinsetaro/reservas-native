@@ -86,7 +86,7 @@ const style= StyleSheet.create({
     fontSize:30,
     color:'#fff',
     fontWeight:'900',
-    marginLeft:10,
+    marginLeft:10
   
    },
    subTituloSegundo:{
@@ -95,6 +95,10 @@ const style= StyleSheet.create({
       fontWeight:'900',
       marginTop:140,
       marginLeft:10,
+      backgroundColor:'#B217E8',
+      paddingLeft:10,
+      marginHorizontal:10,
+      borderRadius:7
    },
    precioTexto:{
     fontSize:70,
