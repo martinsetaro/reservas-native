@@ -4,7 +4,9 @@ Text,
 View,
 StyleSheet,
 Image,
-FlatList
+FlatList,
+VirtualizedList,
+SafeAreaView
 } from 'react-native'
 import OpcionesOfertas from './OpcionesOfertas'
 import Destinos from './Destinos'
@@ -13,35 +15,40 @@ import Destinos from './Destinos'
 
 
 
-const Ofertas = () => {
+const Ofertas = ({navigation}) => {
 
-
-
+    
+   
 
   return (
-     <View style={style.contenedor}>
+     <SafeAreaView style={style.contenedor}>
+      
+
+        <Text style={style.titulo}>No dejes pasar estas ofertas!!</Text>
+
 
          {Destinos.map( item =>{
             return (
-                <OpcionesOfertas item ={item} key={item.id}/>
+                <OpcionesOfertas item ={item} key={item.id} navigation={navigation}/>
             )
          })}
 
-     </View>
+     </SafeAreaView>
     
   )
 }
 
 const style= StyleSheet.create({
     contenedor:{
-       
+        marginHorizontal:5,
         paddingTop:10,
         paddingBottom:40
     },
     titulo:{
         textAlign:'center',
         fontSize:30,
-        color:'#1e1e1e'
+        color:'#1e1e1e',
+        textTransform:'uppercase'
         
     }
 })

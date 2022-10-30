@@ -3,7 +3,7 @@
 const globalStyle = {
     contenedor:{
         width:'100%',
-        height:400
+        height:600
     },
     btn:{
         backgroundColor:'#DE4005',

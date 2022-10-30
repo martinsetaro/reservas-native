@@ -9,18 +9,27 @@ import {
 
 } from 'react-native'
 import globalStyle from '../globalStyle'
+import DetalleOferta from '../../screens/DetalleOferta'
 
 
 
 
 
-const OpcionesOfertas = ({item}) => {
 
-    const{nombre,imagen,precio,fecha} = item
- 
+
+
+const OpcionesOfertas = ({item,navigation}) => {
+
+
+
+   
+   const{nombre,imagen,precio,fecha} = item
    const pic ={uri:imagen}
 
+
   return (
+   
+   
     <View style={style.contenedor}>
         
                 
@@ -30,18 +39,25 @@ const OpcionesOfertas = ({item}) => {
                 style={style.contenedorImagen}
                  >
                   <Text style={style.titulo}>{nombre}</Text>
+                  <Text style={style.subTituloSegundo}>Proxima salida</Text>
                    <Text style={style.subTitulo}>{fecha}</Text>
                   <Text style={style.precioTexto}>{precio}</Text>
 
-                 <Pressable style={style.btn}>
+                 <Pressable
+                 
+                 onPress={() => navigation.navigate('Detalleoferta',item)}
+                 style={style.btn}>
                     <Text style={style.btnTexto}>Ver mas</Text>
                  </Pressable>
                 </ImageBackground>
+
+                
                 
                    
         
        
     </View>
+    
     
   )
 }
@@ -50,7 +66,8 @@ const style= StyleSheet.create({
    contenedor:{
       width:'100%',
       height:450,
-      marginBottom:30,marginTop:30
+      marginBottom:10,
+      marginTop:30
    },
    contenedorImagen:{
     width:'100%',
@@ -59,7 +76,7 @@ const style= StyleSheet.create({
     
    },
    titulo:{
-    fontSize:40,
+    fontSize:35,
     color:'#fff',
     fontWeight:'900',
     marginTop:20,
@@ -70,7 +87,14 @@ const style= StyleSheet.create({
     color:'#fff',
     fontWeight:'900',
     marginLeft:10,
-    marginTop:160
+  
+   },
+   subTituloSegundo:{
+      fontSize:30,
+      color:'#fff',
+      fontWeight:'900',
+      marginTop:140,
+      marginLeft:10,
    },
    precioTexto:{
     fontSize:70,

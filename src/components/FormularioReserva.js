@@ -60,7 +60,9 @@ const FormularioReserva = ({setReservas,reservas,setModal}) => {
  <ScrollView>
     <View style={style.contenedor}>
        
-           <Text style={style.titulo}> Formulario de reservas</Text>
+           <Text style={style.titulo}> Realiza tu reserva en nuestro Hotel exclusivo de {''} 
+           <Text style={style.textoSpan}>Vacacionar</Text>
+           </Text>
 
           <View>
             <Text style={style.label}>Nombre:</Text>
@@ -213,6 +215,10 @@ const style = StyleSheet.create({
         marginBottom:20,
         backgroundColor:'#f0f0f0',
         
+    },
+    textoSpan:{
+        color:'red',
+        textTransform:'uppercase'
     }
 })
 

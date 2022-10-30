@@ -1,142 +1,53 @@
-
-import React, { useState }from 'react'
+import React, {
+  useState,
+  useEffect
+} from 'react'
 import {
-Text,
-View,
-SafeAreaView,
-Image,
-StyleSheet,
-ImageBackground,
-Pressable,
-Modal,
-ScrollView
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  StyleSheet,
+  ImageBackground,
+  Pressable,
+  Modal,
+  ScrollView
 } from 'react-native'
-import FormularioReserva from './src/components/FormularioReserva'
-import globalStyle from './src/globalStyle'
-import Ofertas from './src/components/Ofertas'
+import Home from './screens/Home';
+import DetalleOferta from './screens/DetalleOferta';
+import FormularioReserva from './src/components/FormularioReserva';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import FormularioCompra from './screens/FormularioCompra';
 
 
-const image = {uri:'https://images.pexels.com/photos/237272/pexels-photo-237272.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'}
+const Stack = createNativeStackNavigator();
 
 
 const App = () => {
 
 
-  const [ reservas , setReservas] = useState([])
-  const [modal,setModal] = useState(false)
+const Tab = createBottomTabNavigator()
 
-
-
-  const handlerReservas = () => {
-      setModal(true)
-
-  }
 
 
 
   return (
-      <SafeAreaView>
-        <ScrollView showsVerticalScrollIndicator={false}>
-         <View style={style.contenedor}>
-           <ImageBackground
-              style={style.imagen}
-              source={image}
-              resizeMode='cover'>
-                <View style={style.contenedorLogo}>
-                  <Image
-                  style={style.imagenLogo} 
-                  source = {require('./src/img/logoApp2.png')}/>
-                </View>
-                 <Text style={style.textoInside}>Vivelo desde dentro</Text>
-                 <Pressable 
-                 onPress = {handlerReservas}
-                 style={style.btnReserva}>
-                     <Text style={style.textoBtnReserva}>Realizar reserva</Text>
-                 </Pressable>
-           </ImageBackground>
-         </View>
-
-         
-         
-         
-
-         <Modal
-         visible={modal}
-         animationType='slide'
-         >
-          <Pressable 
-          onPress={ () => setModal(!modal)}
-          style={style.btnCancelar}>
-             <Text style={style.textoBtnReserva}>Cancelar</Text>
-          </Pressable>
-
-           <FormularioReserva
-           setReservas={setReservas}
-           reservas={reservas}
-           setModal={setModal}
-           />
-
-         </Modal>
-        
-          <Ofertas/>
-        
-         
-
-
-
-
- </ScrollView>
-      
-      </SafeAreaView>
+  <NavigationContainer>
     
+    <Stack.Navigator
+     screenOptions={{
+      headerShown: false
+    }}>
+      <Stack.Screen name={'Home'} component={Home}/>
+      <Stack.Screen name={'Detalleoferta'} component={DetalleOferta}/>
+      <Stack.Screen name={'FormularioCompra'} component={FormularioCompra}/>
+      
+    </Stack.Navigator>
+  </NavigationContainer>
   )
 }
 
 
-const style = StyleSheet.create({
-      contenedor:{
-        ...globalStyle.contenedor,
-        
-      },
-      imagen:{
-        flex:1
-      },
-      contenedorLogo:{
-          width:200,
-          height:120,
-          marginHorizontal:90,
-          marginTop:30
-      },
-      imagenLogo:{
-          width:'100%',
-          height:'100%',
-          marginHorizontal:10
-      },
-      textoInside:{
-        textAlign:'center',
-        color:'#fff',
-        fontWeight:'bold',
-        textTransform:'uppercase',
-        fontSize:50,marginTop:30
-      },
-      btnReserva:{
-        ...globalStyle.btn,
-        marginTop:40
-      },
-      textoBtnReserva:{
-        fontSize:20,
-        textTransform:'uppercase',
-        color:'#fff',
-        fontWeight:'bold',
-        textAlign:'center'
-      },
-      modalTexto:{
-        fontSize:50,
-        textAlign:'center'
-      },
-      btnCancelar:{
-        ...globalStyle.btn,
-        marginTop:30
-      }
-})
 export default App
