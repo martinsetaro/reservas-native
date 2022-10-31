@@ -53,7 +53,7 @@ const style= StyleSheet.create({
       height:200
     },
     imagen:{
-        width:350,
+        width:'100%',
         height:200
     }
 

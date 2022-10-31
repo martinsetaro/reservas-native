@@ -7,9 +7,11 @@ TextInput,
 Pressable,
 ScrollView,
 SafeAreaView,
-Alert
+Alert,
+Modal
 } from 'react-native'
 import DatePicker from 'react-native-date-picker'
+
 
 const FormularioReserva = ({setReservas,reservas,setModal}) => {
 
@@ -21,6 +23,7 @@ const FormularioReserva = ({setReservas,reservas,setModal}) => {
     const [adultos,setAdultos] = useState('')
     const [niños,setNiños] = useState('')
     const [fecha,setFecha] = useState(new Date())
+    
    
 
     
@@ -41,13 +44,20 @@ const FormularioReserva = ({setReservas,reservas,setModal}) => {
             "Atención",
             "Se realizara la reserva, desea verificar los datos",
             [
-                {text:"Cancel"},
+                {text:"Si, verificar"},
                 {text:"Hacer reserva", onPress:()=> {
                     setReservas([...reservas, reserva])
                     setModal(false)
+                    Alert.alert(
+                        "Exito!!!",
+                        "La reserva fue registrada con exito"
+            
+                    )
+
                 }}
             ]
         )
+        
        
     }
 }
@@ -78,6 +88,7 @@ const FormularioReserva = ({setReservas,reservas,setModal}) => {
             <TextInput
             style={style.input}
             value={telefono}
+            keyboardType='numeric'
             onChangeText={setTelefono}
             placeholder='Ingrese su nombre'
             />

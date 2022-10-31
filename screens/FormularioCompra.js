@@ -42,6 +42,14 @@ const FormularioCompra = ({navigation}) => {
         source={require('../src/img/master-card.png')}/>
             
         </View>
+        <View style={style.formulario}>
+            <Text style={style.titulo}>Información de compra paquetes</Text>
+            <Text>Cantidad de personas</Text>
+            <TextInput
+            keyboardType='numeric'
+            style={style.input}
+            />
+        </View>
 
         <View style={[style.formulario , style.formularioPrincipal]}>
             <Text style={style.label}>Detalle de tarjeta</Text>
@@ -110,6 +118,11 @@ const style= StyleSheet.create({
         justifyContent:'space-around',
         alignItems:'center'
     },
+    titulo:{
+        fontSize:25,
+        marginBottom:10,
+        textAlign:'center'
+    },
     label:{
      fontSize:20,
      marginBottom:10
@@ -118,7 +131,8 @@ const style= StyleSheet.create({
      marginTop:20,
      borderColor:'#1e1e1e',
      borderBottomWidth:1,
-     marginBottom:30
+     marginBottom:30,
+     fontSize:20
     },
     formularioPrincipal:{
        paddingBottom:60,

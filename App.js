@@ -15,11 +15,12 @@ import {
 } from 'react-native'
 import Home from './screens/Home';
 import DetalleOferta from './screens/DetalleOferta';
-import FormularioReserva from './src/components/FormularioReserva';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import FormularioCompra from './screens/FormularioCompra';
+import Reservas from './screens/Reservas';
+
 
 
 const Stack = createNativeStackNavigator();
@@ -43,6 +44,8 @@ const Tab = createBottomTabNavigator()
       <Stack.Screen name={'Home'} component={Home}/>
       <Stack.Screen name={'Detalleoferta'} component={DetalleOferta}/>
       <Stack.Screen name={'FormularioCompra'} component={FormularioCompra}/>
+      <Stack.Screen name={'Reservas'} component={Reservas}/>
+      
       
     </Stack.Navigator>
   </NavigationContainer>

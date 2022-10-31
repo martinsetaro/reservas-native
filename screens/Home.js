@@ -13,6 +13,7 @@ ScrollView
 import FormularioReserva from '../src/components/FormularioReserva'
 import globalStyle from '../src/globalStyle'
 import Ofertas from '../src/components/Ofertas'
+import Reservas from './Reservas'
 
 
 
@@ -28,11 +29,18 @@ const Home = ({navigation}) => {
 
   const [ reservas , setReservas] = useState([])
   const [modal,setModal] = useState(false)
+  const [modalReservas,setModalReservas] = useState(false)
 
  
   const handlerReservas = () => {
       setModal(true)
 
+  }
+
+
+  const eliminarReserva = (id) => {
+    const actualizarReservas = reservas.filter ( item => item.nombre != id)
+    setReservas(actualizarReservas)
   }
 
  
@@ -42,7 +50,7 @@ const Home = ({navigation}) => {
 
 
   return (
-      <SafeAreaView >
+      <SafeAreaView style={style.principal} >
         <ScrollView>
          <View style={style.contenedor}>
            <ImageBackground
@@ -61,6 +69,8 @@ const Home = ({navigation}) => {
                      <Text style={style.textoBtnReserva}>Hacer reserva en el hotel</Text>
                  </Pressable>
            </ImageBackground>
+
+           
          </View>
 
          
@@ -88,15 +98,31 @@ const Home = ({navigation}) => {
          </Modal>
         
          
-        
+      <Pressable 
+      onPress={() => setModalReservas(true) }
+      style={style.btnReservas}>
+        <Text style={style.textoBtnReservas}>Ver reservas</Text>
+      </Pressable>
          
+
+    <Modal
+    visible={modalReservas}
+    animationType='slide'
+    >
+      <Reservas
+      setModalReservas={setModalReservas}
+      reservas={reservas}
+      setReservas={setReservas}
+      eliminarReserva={eliminarReserva}
+      />
+    </Modal>
 
 
 
 
  
       </ScrollView>
-      </SafeAreaView>
+  </SafeAreaView>
     
   )
 }
@@ -107,6 +133,11 @@ const style = StyleSheet.create({
       contenedor:{
         ...globalStyle.contenedor,
         
+        
+      },
+      principal:{
+        
+      marginBottom:40
       },
       imagen:{
         flex:1
@@ -148,6 +179,19 @@ const style = StyleSheet.create({
       btnCancelar:{
         ...globalStyle.btn,
         marginTop:30
+      },
+      btnReservas:{
+        ...globalStyle.btn,
+        marginBottom:60,
+        backgroundColor:'#467b82'
+
+      },
+      textoBtnReservas:{
+        color:'#fff',
+        fontSize:30,
+        fontFamily:'Outfit-Regular',
+        textTransform:'uppercase',
+        textAlign:'center'
       }
 })
 
